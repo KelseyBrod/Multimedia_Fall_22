@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay Reader</title>
+    <link rel ="stylesheet" href ="styles/style.css">
+</head>
+
+<body>
+    <h1>Dungeons & Dragons</h1>
+    <div class ="container" id ="container">
+        <p>Dungeons & Dragons (commonly abbreviated as D&D or DnD) is <span class ="highlights"> a fantasy tabletop role-playing game (RPG) </span> 
+            originally designed by <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Gary_Gygax" target="_blank">Gary Gygax</a> and <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Dave_Arneson" target="_blank">Dave Arneson</a>. 
+            It was <span class ="highlights">first published in 1974</span> by Tactical Studies Rules, Inc. (TSR). 
+            It has been published by Wizards of the Coast (now a subsidiary of Hasbro) since 1997. 
+            The game was derived from miniature wargames, with a variation of the 1971 game Chainmail serving as the initial rule system. 
+            D&D's publication is <span class ="highlights">commonly recognized as the beginning of modern role-playing games and the role-playing game industry</span>, and also deeply influenced videogames, 
+            especially the <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Role-playing_video_game" target="_blank">Role-playing video game</a> genre.
+        </p>
+        <p>
+            D&D departs from traditional <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Wargame" target="_blank">wargaming</a> by <span class ="highlights">allowing each player to create their own character</span> to play instead of a military formation. 
+            These characters embark upon <span class ="highlights">imaginary adventures within a fantasy setting</span>. 
+            A <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Dungeon_Master" target="_blank">Dungeon Master</a> (DM) serves as the game's referee and storyteller, while maintaining the setting in which the adventures occur, and playing the role of the inhabitants of the game world. 
+            The characters form a party and they interact with the setting's inhabitants and each other. Together they <span class ="highlights">solve dilemmas, engage in battles, explore, and gather treasure and knowledge</span>. In the process, the characters earn experience points (XP) in order to rise in levels, and become increasingly powerful over a series of separate gaming sessions.
+        </p>
+        <p>
+            From <cite><a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons" target="_blank">Wikipedia</a></cite>
+        </p>
+    </div>
+    <nav class ="navigation">
+        <div class ="input">
+            <label for = "fontSize">Font Size</label>
+            <input type="range" min="10" max="50" class = "slider" id="fontSize" onchange="fontSize()" value="15"/>
+        </div>
+        <div class ="input">
+            <label for = "inlineHeight">Inline Height</label>
+            <input type="range" min="10" max="60" class = "slider" id="inlineHeight" onchange="inlineHeight()" value="30"/>
+        </div>
+        <div class ="input">
+            <label for = "hightLight">Highlights</label>
+            <div class="roundButton" id="button-1">
+                <input type="checkbox" class="checkbox" id = "highLight" onchange ="highLight()"/>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+        </div>
+        <div class ="input">
+            <label for = "hyperLink">Hyperlink</label>
+            <div class="roundButton" id="button-2">
+                <input type="checkbox" class="checkbox" id = "hyperLink" onchange ="hyperLink()"/>
+                <div class="knobs"></div>
+                <div class="layer"></div>
+            </div>
+        </div>
+        <div class ="input">
+            <label for = "keyboard">Keyboard</label>
+            <div class="keyboardButton" id="button-3">
+                <input type="checkbox" class="checkbox" id = "keyboard" onclick="location.href='pages/keyboard.html'"/>
+                <div class="keyboardknobs"></div>
+                <div class="keyboardlayer"></div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        var container = document.getElementById("container");
+        var highlights = document.getElementsByClassName("highlights");
+        var hyperlinks = document.getElementsByClassName("hyperlinks");
+    
+        function fontSize() {
+            var slider = document.getElementById("fontSize");
+            container.style.fontSize = slider.value + "px";
+        }
+
+        function inlineHeight(){
+            var slider = document.getElementById("inlineHeight");
+            container.style.lineHeight = slider.value + "px";
+        }
+
+        function highLight(){
+            var checkbox = document.getElementById("highLight");
+            for(var i = 0; i < highlights.length; i++){
+		        if (checkbox.checked){
+                    highlights[i].style.color = "#03a9f4";
+                } else {
+                    highlights[i].style.color = "black";
+                }
+	        }
+        }
+
+        function hyperLink(){
+            var checkbox = document.getElementById("hyperLink");
+            for(var i = 0; i < hyperlinks.length; i++){
+		        if (checkbox.checked){
+                    hyperlinks[i].style.color = "#FC9500";
+                } else {
+                    hyperlinks[i].style.color = "black";
+                }
+	        }
+        }
+    </script>
+</body>
+</html>

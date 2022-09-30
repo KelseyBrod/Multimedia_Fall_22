@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay Reader</title>
+    <link rel ="stylesheet" href ="../styles/keyboardStyle.css">
+</head>
+
+<body>
+    <h1>Dungeons & Dragons</h1>
+    <main id ="container">
+        <p>Dungeons & Dragons (commonly abbreviated as D&D or DnD) is <span class ="highlights"> a fantasy tabletop role-playing game (RPG) </span> 
+            originally designed by <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Gary_Gygax" target="_blank">Gary Gygax</a> and <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Dave_Arneson" target="_blank">Dave Arneson</a>. 
+            It was <span class ="highlights">first published in 1974</span> by Tactical Studies Rules, Inc. (TSR). 
+            It has been published by Wizards of the Coast (now a subsidiary of Hasbro) since 1997. 
+            The game was derived from miniature wargames, with a variation of the 1971 game Chainmail serving as the initial rule system. 
+            D&D's publication is <span class ="highlights">commonly recognized as the beginning of modern role-playing games and the role-playing game industry</span>, and also deeply influenced videogames, 
+            especially the <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Role-playing_video_game" target="_blank">Role-playing video game</a> genre.
+        </p>
+        <p>
+            D&D departs from traditional <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Wargame" target="_blank">wargaming</a> by <span class ="highlights">allowing each player to create their own character</span> to play instead of a military formation. 
+            These characters embark upon <span class ="highlights">imaginary adventures within a fantasy setting</span>. 
+            A <a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Dungeon_Master" target="_blank">Dungeon Master</a> (DM) serves as the game's referee and storyteller, while maintaining the setting in which the adventures occur, and playing the role of the inhabitants of the game world. 
+            The characters form a party and they interact with the setting's inhabitants and each other. Together they <span class ="highlights">solve dilemmas, engage in battles, explore, and gather treasure and knowledge</span>. In the process, the characters earn experience points (XP) in order to rise in levels, and become increasingly powerful over a series of separate gaming sessions.
+        </p>
+        <p>
+            From <cite><a class ="hyperlinks" href ="https://en.wikipedia.org/wiki/Dungeons_%26_Dragons" target="_blank">Wikipedia</a></cite>
+        </p>
+    </main>
+    <nav>
+        <section>
+            <label for = "fontSize">Font Size</label>
+            <button type ="button" onclick ="fontSize(-5)" id ="buttonOne">A-</button>
+            <button type ="button" onclick ="fontSize(5)" id ="buttonOne">A+</button>
+        </section>
+        <section>
+            <label for = "inlineHeight">Inline Height</label>
+            <button type ="button" onclick ="inlineHeight(-5)" id ="buttonTwo">H-</button>
+            <button type ="button" onclick ="inlineHeight(5)" id ="buttonTwo">H+</button>
+        </section>
+        <section>
+            <label for = "highLight">Highlights</label>
+            <input type="checkbox" class="checkbox" id = "highLight" onchange ="button()"/>
+        </section>
+        <section>
+            <label for = "hyperLink">Hyperlink</label>
+            <input type="checkbox" class="checkbox" id = "hyperLink" onchange ="button()"/>
+        </section>
+        <section>
+            <label for = "keyboard">Keyboard</label>
+            <input type="checkbox" class="checkbox" id = "keyboard" onclick="location.href='../index.html'" checked/>
+        </section>
+    </nav>
+    <script>
+        var container = document.getElementById("container");
+        var highlights = document.getElementsByClassName("highlights");
+        var hyperlinks = document.getElementsByClassName("hyperlinks");
+    
+        function fontSize(factor) {
+            style = window.getComputedStyle(container, null).getPropertyValue('font-size');
+            currentSize = parseFloat(style);
+            container.style.fontSize = (currentSize + factor) + 'px';
+        }
+
+        function inlineHeight(factor) {
+            style = window.getComputedStyle(container, null).getPropertyValue('line-height');
+            currentHeight = parseFloat(style);
+            container.style.lineHeight = (currentHeight + factor) + 'px';
+        }
+
+        function button(){
+            var checkboxOne = document.getElementById("highLight");
+            var checkboxTwo = document.getElementById("hyperLink");
+            for(var i = 0, j = 0; i < highlights.length, j < hyperlinks.length; i++, j++){
+                if (!checkboxOne.checked && !checkboxTwo.checked){
+                    container.style.visibility = "visible";
+                    highlights[i].style.visibility = "visible";
+                    hyperlinks[j].style.visibility = "visible";
+                }else if(checkboxOne.checked && !checkboxTwo.checked){
+                    container.style.visibility = "hidden";
+                    hyperlinks[j].style.visibility = "hidden";
+                    highlights[i].style.visibility = "visible";
+                }else if(!checkboxOne.checked && checkboxTwo.checked){
+                    container.style.visibility = "hidden";
+                    highlights[i].style.visibility = "hidden";
+                    hyperlinks[j].style.visibility = "visible";
+                }else if(checkboxOne.checked && checkboxTwo.checked){
+                    container.style.visibility = "hidden";
+                    highlights[i].style.visibility = "visible";
+                    hyperlinks[j].style.visibility = "visible";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
