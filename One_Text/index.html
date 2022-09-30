@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Roooll</title>
+    <style>
+
+    .lyrics{
+        text-align: center;
+    }
+
+    p {
+        display: flex;
+        justify-content: center;
+        transform: scale(.5);
+        font-size: 50px;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        color: white;   
+        -webkit-text-stroke: 1px black;
+        cursor: pointer;
+        transition: transform 500ms;
+    }
+
+    p:hover {
+        color: yellow;
+        transform: scale(1);
+    }
+
+    #rr{
+        color: black;
+        text-decoration: none;
+    }
+
+    #rr:hover {
+        color: blue;
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    </style>
+    <script>
+
+    function PlayAudio(audio) {
+        var thisaudio=document.getElementById(audio);
+        thisaudio.play();
+    }
+
+    function StopAudio(audio) {
+        var thisaudio=document.getElementById(audio);
+        thisaudio.pause();
+        thisaudio.currentTime = 0;
+    }
+
+    </script>
+</head>
+<body>
+    <audio id="first" src="/Audio/First.mp3"></audio>
+    <audio id="second" src="/Audio/Second.mp3"></audio>
+    <audio id="third" src="/Audio/Third.mp3"></audio>
+    <audio id="fourth" src="/Audio/Fourth.mp3"></audio>
+    <audio id="fifth" src="/Audio/Fifth.mp3"></audio>
+    <audio id="sixth" src="/Audio/Sixth.mp3"></audio>
+    <div class = "lyrics">
+        <p onmouseover="PlayAudio('first')" onmouseout="StopAudio('first')">Never goona give you up</p>
+        <p onmouseover="PlayAudio('second')" onmouseout="StopAudio('second')">Never gonna let you down</p>
+        <p onmouseover="PlayAudio('third')" onmouseout="StopAudio('third')">Never gonna run around and desert you</p>
+        <p onmouseover="PlayAudio('fourth')" onmouseout="StopAudio('fourth')">Never gonna make you cry</p>
+        <p onmouseover="PlayAudio('fifth')" onmouseout="StopAudio('fifth')">Never gonna say goodbye</p>
+        <p onmouseover="PlayAudio('sixth')" onmouseout="StopAudio('sixth')">Never gonna tell a lie and hurt you</p>
+        <cite>- <a href = "https://youtu.be/dQw4w9WgXcQ" id = "rr">Rick Roll</a></cite>
+    </div>
+</body>
+</html>
