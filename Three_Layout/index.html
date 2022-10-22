@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles/style.css" type="text/css" rel="stylesheet">
+    <title>Justify to Draw</title>
+</head>
+<body>
+    <main id="mainGrid">
+        <section id="listOne">
+            <nav>
+                <button onclick="justifyRowStatus(0, 0)">Start</button>
+                <button onclick="justifyRowStatus(0, 1)">Center</button>
+                <button onclick="justifyRowStatus(0, 2)">End</button>
+            </nav>
+            <nav>
+                <button onclick="justifyRowStatus(1, 0)">Start</button>
+                <button onclick="justifyRowStatus(1, 1)">Center</button>
+                <button onclick="justifyRowStatus(1, 2)">End</button>
+            </nav>
+            <nav>
+                <button onclick="justifyRowStatus(2, 0)">Start</button>
+                <button onclick="justifyRowStatus(2, 1)">Center</button>
+                <button onclick="justifyRowStatus(2, 2)">End</button>
+            </nav>
+            <nav>
+                <button onclick="justifyRowStatus(3, 0)">Start</button>
+                <button onclick="justifyRowStatus(3, 1)">Center</button>
+                <button onclick="justifyRowStatus(3, 2)">End</button>
+            </nav>
+        </section>
+        <section id="maze">
+            <div onclick="randomColor(this)" class="rowOne columnOne"></div>
+            <div onclick="randomColor(this)" class="rowOne columnTwo"></div>
+            <div onclick="randomColor(this)" class="rowOne columnThree"></div>
+            <div onclick="randomColor(this)" class="rowOne columnFour"></div>
+            <div onclick="randomColor(this)" class="rowOne columnFive"></div>
+            <div onclick="randomColor(this)" class="rowOne columnSix"></div>
+            <div onclick="randomColor(this)" class="rowTwo columnOne"></div>
+            <div onclick="randomColor(this)" class="rowTwo columnTwo"></div>
+            <div onclick="randomColor(this)" class="rowTwo columnThree"></div>
+            <div onclick="randomColor(this)" class="rowTwo columnFour"></div>
+            <div onclick="randomColor(this)" class="rowTwo columnFive"></div>
+            <div onclick="randomColor(this)" class="rowTwo columnSix"></div>
+            <div onclick="randomColor(this)" class="rowThree columnOne"></div>
+            <div onclick="randomColor(this)" class="rowThree columnTwo"></div>
+            <div onclick="randomColor(this)" class="rowThree columnThree"></div>
+            <div onclick="randomColor(this)" class="rowThree columnFour"></div>
+            <div onclick="randomColor(this)" class="rowThree columnFive"></div>
+            <div onclick="randomColor(this)" class="rowThree columnSix"></div>
+            <div onclick="randomColor(this)" class="rowFour columnOne"></div>
+            <div onclick="randomColor(this)" class="rowFour columnTwo"></div>
+            <div onclick="randomColor(this)" class="rowFour columnThree"></div>
+            <div onclick="randomColor(this)" class="rowFour columnFour"></div>
+            <div onclick="randomColor(this)" class="rowFour columnFive"></div>
+            <div onclick="randomColor(this)" class="rowFour columnSix"></div>
+        </section>
+        <section id="reset">
+            <h1>justify-self</h1>
+        </section>
+        <section id="listTwo">
+            <nav class="navColumn">
+                <button onclick="justifyColumnStatus(0, 0)">Start</button>
+                <button onclick="justifyColumnStatus(0, 1)">Center</button>
+                <button onclick="justifyColumnStatus(0, 2)">End</button>
+            </nav>
+            <nav class="navColumn">
+                <button onclick="justifyColumnStatus(1, 0)">Start</button>
+                <button onclick="justifyColumnStatus(1, 1)">Center</button>
+                <button onclick="justifyColumnStatus(1, 2)">End</button>
+            </nav>
+            <nav class="navColumn">
+                <button onclick="justifyColumnStatus(2, 0)">Start</button>
+                <button onclick="justifyColumnStatus(2, 1)">Center</button>
+                <button onclick="justifyColumnStatus(2, 2)">End</button>
+            </nav>
+            <nav class="navColumn">
+                <button onclick="justifyColumnStatus(3, 0)">Start</button>
+                <button onclick="justifyColumnStatus(3, 1)">Center</button>
+                <button onclick="justifyColumnStatus(3, 2)">End</button>
+            </nav>
+            <nav class="navColumn">
+                <button onclick="justifyColumnStatus(4, 0)">Start</button>
+                <button onclick="justifyColumnStatus(4, 1)">Center</button>
+                <button onclick="justifyColumnStatus(4, 2)">End</button>
+            </nav>
+            <nav class="navColumn">
+                <button onclick="justifyColumnStatus(5, 0)">Start</button>
+                <button onclick="justifyColumnStatus(5, 1)">Center</button>
+                <button onclick="justifyColumnStatus(5, 2)">End</button>
+            </nav>
+        </section>
+    </main>
+    <script>
+        const statuses = ["start", "center", "end"];
+        const rows = ["rowOne", "rowTwo", "rowThree", "rowFour"];
+        const columns = ["columnOne", "columnTwo", "columnThree", "columnFour", "columnFive", "columnSix"];
+
+        function randomColor(a){
+            const randomColor = Math.floor(Math.random()*16777215).toString(16);
+            a.style.backgroundColor = "#" + randomColor;
+        }
+
+        function justifyRowStatus(a, b){
+            const row = rows[a];
+            const status = statuses[b];
+            const target = document.getElementsByClassName(row);
+            for(var i = 0; i < target.length; i++){
+                target[i].style.justifySelf = status;
+            }
+        }
+    
+        function justifyColumnStatus(a, b){
+            const column = columns[a];
+            const status = statuses[b];
+            const target = document.getElementsByClassName(column);
+            for(var i = 0; i < target.length; i++){
+                target[i].style.justifySelf = status;
+            }
+        }
+    </script>
+</body>
+</html>
