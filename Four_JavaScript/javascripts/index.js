@@ -38,7 +38,7 @@ class Player {
 }
 
 // Enemy generation and collision inspired by Chris Courses: https://www.youtube.com/c/ChrisCourses/videos
-
+//thanks for citing!
 class Enemy {
     constructor({position, radius, color, velocity}){
         this.position = position
